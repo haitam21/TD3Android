@@ -20,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
         final EditText username=(EditText) findViewById(R.id.userName);
         final EditText password=(EditText) findViewById(R.id.Password);
         Button login=(Button) findViewById(R.id.login);
+        final NewsListApplication app = (NewsListApplication) getApplicationContext();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     Intent intent=new Intent(MainActivity.this,news.class);
-                    intent.putExtra("login",username.getText().toString());
+                    app.setLogin(username.getText().toString());
+                    //intent.putExtra("login",username.getText().toString());
                     startActivity(intent);
                     finish();
                 }else{

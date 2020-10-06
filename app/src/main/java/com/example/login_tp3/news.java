@@ -20,13 +20,9 @@ public class news extends AppCompatActivity {
         Button details=(Button) findViewById(R.id.details);
         Button about=(Button) findViewById(R.id.about);
         TextView username=(TextView) findViewById(R.id.textView);
+        final NewsListApplication app = (NewsListApplication) getApplicationContext();
 
-        Intent intent=getIntent();
-        String login;
-        if(intent.hasExtra("login")){
-            login=intent.getStringExtra("login");
-            username.setText(login);
-        }
+        username.setText(app.getLogin());
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
